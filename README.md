@@ -10,7 +10,7 @@
 <h3> Tecnologias utilizadas <h3>
 
 <p display="inline-block">
-  <img width="48" src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221402014-c571b02c-2f9a-4714-9b66-b3723a5bd667.png" alt="csharp-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221401749-3f944303-82f3-4113-ad47-4ab6a1a70dec.png" alt="fluentvalidation-logo"/>
   <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png" alt="blazor-logo"/>
 </p>
