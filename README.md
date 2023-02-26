@@ -54,9 +54,13 @@ Na **business**, concentramos toda a regra de negócio do domínio.
 
 Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada **Cross-Cutting**, uma camada destinada a ser utilizada para consumo de API externas.
 
+## Banco de Dados
 
+O SGBD que estou utilizando nesse projeto é o PostgreSQL instalado em um servidor Linux e para a criação do banco e suas respectivas tabelas, estou utilizado a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/).
 
-**STATUS: This project is actively used in production environments.**
+```sql
+CREATE DATABASE financeiro TEMPLATE = template0 LC_CTYPE = "pt_BR.UTF-8" LC_COLLATE = "pt_BR.UTF-8";
+```
 
 
 
