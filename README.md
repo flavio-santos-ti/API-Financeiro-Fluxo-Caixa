@@ -1,3 +1,5 @@
+![fluent-validation](https://user-images.githubusercontent.com/62816438/221401749-3f944303-82f3-4113-ad47-4ab6a1a70dec.png)
+![fluent-validation](https://user-images.githubusercontent.com/62816438/221401762-d5c8d931-da6b-407d-9550-f3d09d91be03.png)
 <h1 align="center">API - Fluxo de Caixa Financeiro Básico</h1>
 <p align="center"><i>Repositório para versionamento e documentação básica do projeto Fluxo de Caixa no GitHub.</i></p>
 
@@ -11,7 +13,8 @@
 
 <p display="inline-block">
   <img width="48" src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
-  <img width="48" src="![fluent-validation](https://user-images.githubusercontent.com/62816438/221401716-baaaa85c-5821-4303-9bf5-e08949c7e559.png)" alt="fluentvalidation-logo"/>
+  <img width="48" src="![fluent-validation](https://user-images.githubusercontent.com/62816438/221401783-89c54098-6ac0-4fe8-a242-8ed9b3d64a65.png)
+" alt="fluentvalidation-logo"/>
   <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png" alt="blazor-logo"/>
 </p>
 
