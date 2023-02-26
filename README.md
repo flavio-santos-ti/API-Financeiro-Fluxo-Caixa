@@ -32,11 +32,12 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
  - Docker;
  - Linux Ubuntu Server.
 
+## Arquitetura
 
 **STATUS: This project is actively used in production environments.**
 
 
-## Features
+
 
 Your new HTML website will immediately have publishable and documented code, and all these features:
 
