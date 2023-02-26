@@ -11,8 +11,7 @@
 
 <p display="inline-block">
   <img width="48" src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
-  <img width="48" src="![fluent-validation](https://user-images.githubusercontent.com/62816438/221401783-89c54098-6ac0-4fe8-a242-8ed9b3d64a65.png)
-" alt="fluentvalidation-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221401749-3f944303-82f3-4113-ad47-4ab6a1a70dec.png" alt="fluentvalidation-logo"/>
   <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png" alt="blazor-logo"/>
 </p>
 
