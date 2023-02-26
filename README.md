@@ -11,7 +11,7 @@
 
 <p display="inline-block">
   <img width="48" src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
-  <img width="48" src="https://api.nuget.org/v3-flatcontainer/fluentvalidation/11.5.1/icon" alt="fluentvalidation-logo"/>
+  <img width="48" src="https://drive.google.com/file/d/1DRdMwfDPcRPdUBxC2uuUx5oDZXNlYAJl/view?usp=share_link" alt="fluentvalidation-logo"/>
   <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png" alt="blazor-logo"/>
 </p>
 
