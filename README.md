@@ -38,20 +38,21 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
   <img width="480" src="https://user-images.githubusercontent.com/62816438/221408389-4b7a39fe-f81a-4d5a-b7fe-d826ba50ad06.png" alt="arquitetura"/>
 </p>
 
-**1 - Application** 
+### 1 - Application 
 
-Tem a função de receber todas as requisições http e direcioná-las para a camada Business para aplicar as validações e regras de negócio.
+A camada **application** Tem a função de receber todas as requisições http e direcioná-las para a camada **business** para aplicar as validações e regras de negócio.
 
-**2 - Domain** 
+### 2 - Domain 
 
 É a área de definição dos modelos, entidades, DTOs e Interfaces.
 
 ### 3 - Business
+
 Na **business**, concentramos toda a regra de negócio do domínio.
 
-##4 - Infrastructure
+### 4 - Infrastructure
 
-Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada Cross-Cutting, uma camada destinada a ser utilizada para consumo de API externas.
+Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada **Cross-Cutting**, uma camada destinada a ser utilizada para consumo de API externas.
 
 
 
