@@ -1,6 +1,7 @@
 # API - Fluxo de Caixa Financeiro Básico
 <p><i>Repositório para versionamento e documentação básica do projeto Fluxo de Caixa no GitHub.</i></p>
 
+## Sobre o Projeto
 
 **STATUS: This project is actively used in production environments.**
 
