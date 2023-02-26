@@ -34,6 +34,10 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
 
 ## Arquitetura
 
+<p>
+  <img width="90" src="https://user-images.githubusercontent.com/62816438/221403488-185ae58f-8d9f-4893-8516-e2e9d53bdded.png" alt="csharp-logo"/>
+</p>
+
 **STATUS: This project is actively used in production environments.**
 
 
