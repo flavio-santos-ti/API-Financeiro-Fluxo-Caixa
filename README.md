@@ -1,13 +1,13 @@
 # API - Fluxo de Caixa Financeiro Básico
 <p><i>Repositório para versionamento e documentação básica do projeto Fluxo de Caixa no GitHub.</i></p>
 
-## Sobre o projeto
+## 1 - Sobre o projeto
 
 Este é um repositório para mostrar a implementação e o funcionamento de uma aplicação do tipo Web API onde um comerciante precisa controlar seu fluxo de caixa diário com os lançamentos (débitos e créditos) como também um relatório que disponibilize o saldo consolidado.
 
 Nessa primeira versão, para fins didáticos e também como utilizei apenas do meu tempo livre disponível, o relatório será apenas um retorno em JSON, mas em futuro próximo estarei implemetando o retorno de um arquivo PDF representando o relatório.
 
-## Tecnologias utilizadas
+## 2 - Tecnologias utilizadas
 
 
 
@@ -32,12 +32,11 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
  - Docker;
  - Linux Ubuntu Server.
 
-## Arquitetura
+## 3 - Arquitetura
 
 <p>
   <img width="480" src="https://user-images.githubusercontent.com/62816438/221408389-4b7a39fe-f81a-4d5a-b7fe-d826ba50ad06.png" alt="arquitetura"/>
 </p>
-
 
 
 ### 1 - Application 
@@ -56,22 +55,22 @@ Na **business**, concentramos toda a regra de negócio do domínio.
 
 Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada **Cross-Cutting**, uma camada destinada a ser utilizada para consumo de API externas.
 
-## 1 - Banco de Dados
+## 4 - Banco de Dados
 
 O SGBD que estamos utilizando nesse projeto é o [PostgreSQL](https://www.postgresql.org/) e o mesmo estava instalado instalado em um servidor [Linux Ubuntu Server](https://ubuntu.com/download/server), mas nada impede que seja instalado localmente em uma maquina Windows 10 Desktop. 
 Para a criação do banco e a a execução dos seus respectivos scripts DDL, utilizamos a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/). 
 
-### 1.1 - Scripts
+### 4.1 - Scripts
 
 Para a criação do banco de dados e suas respectivas tabelas, execute os scripts a seguir:
 
-#### 1.1.1 - DataBase
+#### 4.1.1 - DataBase
 
 ```sql
 CREATE DATABASE financeiro TEMPLATE = template0 LC_CTYPE = "pt_BR.UTF-8" LC_COLLATE = "pt_BR.UTF-8";
 ```
 
-#### 1.1.2 - Pessoa
+#### 4.1.2 - Pessoa
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.pessoa
@@ -86,7 +85,7 @@ CREATE TABLE IF NOT EXISTS public.pessoa
 CREATE INDEX ix_pessoa_hash_nome ON public.pessoa( hash_nome );
 ```
 
-#### 1.1.3 - Cliente
+#### 4.1.3 - Cliente
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.cliente
@@ -99,7 +98,7 @@ CREATE TABLE IF NOT EXISTS public.cliente
 );
 ```
 
-#### 1.1.4 - Fornecedor
+#### 4.1.4 - Fornecedor
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.fornecedor
@@ -112,7 +111,7 @@ CREATE TABLE IF NOT EXISTS public.fornecedor
 );
 ```
 
-#### 1.1.5 - Categoria
+#### 4.1.5 - Categoria
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.categoria
@@ -126,7 +125,7 @@ CREATE TABLE IF NOT EXISTS public.categoria
 COMMENT ON TABLE public.categoria IS 'Categoria de Títulos. Tipo: E = Entrada e S = Saída';
 ```
 
-#### 1.1.6 - Extrato
+#### 4.1.6 - Extrato
 ```sql
 CREATE TABLE IF NOT EXISTS public.extrato 
 (
@@ -144,7 +143,7 @@ CREATE TABLE IF NOT EXISTS public.extrato
 COMMENT ON TABLE public.categoria IS 'Extrato - Tipo: D = Débito e C = Crédito';
 ```
 
-#### 1.1.7 - Saldos Diários
+#### 4.1.7 - Saldos Diários
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.saldo_diario 
@@ -164,7 +163,7 @@ CREATE INDEX ix_saldo_diario_periodo ON public.saldo_diario( dt_saldo, tipo );
 COMMENT ON TABLE public.saldo_diario IS 'Extrato - Tipo: I = Inicial e F = Final';
 ```
 
-#### 1.1.8 - Títulos a Pagar
+#### 4.1.8 - Títulos a Pagar
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.titulo_pagar
@@ -184,7 +183,7 @@ CREATE TABLE IF NOT EXISTS public.titulo_pagar
 );
 ```
 
-#### 1.1.9 - Títulos a Receber
+#### 4.1.9 - Títulos a Receber
 ```sql
 CREATE TABLE IF NOT EXISTS public.titulo_receber
 (
