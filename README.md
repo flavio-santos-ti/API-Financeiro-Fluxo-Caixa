@@ -18,12 +18,13 @@
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221404176-630c9bc1-de1c-4b1b-ad74-8e26bc07b6cb.png" alt="dotnetcore-logo"/>
 </p>
 
-<ul>
+<p>
+  <ul>
   <li>Dapper</li>
   <li>segundo item</li>
   <li>terceiro item</li>
 </ul>
-  
+</p>  
   
 
 
