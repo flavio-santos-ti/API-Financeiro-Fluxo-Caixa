@@ -56,7 +56,7 @@ Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno ba
 
 ## Banco de Dados
 
-O SGBD que estou utilizando nesse projeto é o [PostgreSQL](https://www.postgresql.org/) instalado em um servidor Linux e para a criação do banco e suas respectivas tabelas, estou utilizado a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/).
+O SGBD que estou utilizando nesse projeto é o [PostgreSQL](https://www.postgresql.org/) instalado em um servidor [Linux Ubuntu Server](https://ubuntu.com/download/server) e para a criação do banco e suas respectivas tabelas, estou utilizado a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/).
 
 ```sql
 CREATE DATABASE financeiro TEMPLATE = template0 LC_CTYPE = "pt_BR.UTF-8" LC_COLLATE = "pt_BR.UTF-8";
