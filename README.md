@@ -9,6 +9,8 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
 
 ## Tecnologias utilizadas
 
+
+
 <p display="inline-block">
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403488-185ae58f-8d9f-4893-8516-e2e9d53bdded.png" alt="csharp-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403370-29d0ab19-e406-4581-bc98-838691b4968a.png" alt="fluentvalidation-logo"/>
@@ -17,6 +19,7 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403962-c5b539cf-1f73-4fbf-8937-507f6956b540.png" alt="postgresql-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221404176-630c9bc1-de1c-4b1b-ad74-8e26bc07b6cb.png" alt="dotnetcore-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221405368-aeaed761-e962-4a3b-bc9c-7a5c7f1543b5.png" alt="docker-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221405737-87bc0545-83ea-49cb-8e6d-d5dbb06f91dc.png" alt="ubuntu-logo"/>
 </p>
 
  - C#;
@@ -27,7 +30,7 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
  - EF .NET Core 6;
  - Visual Studio 2022;
  - Docker;
- - Ubuntu Server Linux.
+ - Linux Ubuntu Server.
 
 
 **STATUS: This project is actively used in production environments.**
