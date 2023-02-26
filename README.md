@@ -16,6 +16,7 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403028-b4f6ceec-b1b4-48d9-8fca-4a2adab8227f.png" alt="dapper-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403962-c5b539cf-1f73-4fbf-8937-507f6956b540.png" alt="postgresql-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221404176-630c9bc1-de1c-4b1b-ad74-8e26bc07b6cb.png" alt="dotnetcore-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221405368-aeaed761-e962-4a3b-bc9c-7a5c7f1543b5.png" alt="docker-logo"/>
 </p>
 
  - C#;
@@ -25,12 +26,12 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
  - PostgreSQL;
  - EF .NET Core 6;
  - Visual Studio 2022;
- - Docker.
+ - Docker;
+ - Ubuntu Server Linux.
 
 
 **STATUS: This project is actively used in production environments.**
 
-![screen shot 2017-03-16 at 6 18 48 pm](https://cloud.githubusercontent.com/assets/382183/24020995/10551b8a-0a75-11e7-812a-9999fc12c2e2.png)
 
 ## Features
 
