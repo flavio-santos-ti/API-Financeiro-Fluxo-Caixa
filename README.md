@@ -24,7 +24,7 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
  - Dapper;
  - PostgreSQL;
  - EF .NET Core 6;
- - Documentation for contributors
+ - Visual Studio 2022.
 
 
 **STATUS: This project is actively used in production environments.**
