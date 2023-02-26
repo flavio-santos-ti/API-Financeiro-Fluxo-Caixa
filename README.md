@@ -2,7 +2,10 @@
 <p><i>Repositório para versionamento e documentação básica do projeto Fluxo de Caixa no GitHub.</i></p>
 
 ## Sobre o Projeto
+
 Este é um repositório para mostrar a implementação e o funcionamento de uma aplicação do tipo Web API onde um comerciante precisa controlar seu fluxo de caixa diário com os lançamentos (débitos e créditos) como também um relatório que disponibilize o saldo consolidado.
+
+Nessa primeira versão, para fins didáticos e como utilizei apenas do meu tempo disponível, o relatório será apenas um retorno em JSON, mas em futuro próximo estarei implemetando o retorno de um arquivo PDF representando o relatório.
 
 **STATUS: This project is actively used in production environments.**
 
