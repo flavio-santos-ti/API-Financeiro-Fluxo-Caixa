@@ -38,6 +38,8 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
   <img width="480" src="https://user-images.githubusercontent.com/62816438/221408389-4b7a39fe-f81a-4d5a-b7fe-d826ba50ad06.png" alt="arquitetura"/>
 </p>
 
+
+
 ### 1 - Application 
 
 A camada **application** Tem a função de receber todas as requisições http e direcioná-las para a camada **business** para aplicar as validações e regras de negócio.
