@@ -56,15 +56,92 @@ Na **business**, concentramos toda a regra de negócio do domínio.
 
 Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada **Cross-Cutting**, uma camada destinada a ser utilizada para consumo de API externas.
 
-## Banco de Dados
+## 1 - Banco de Dados
 
-O SGBD que estamos utilizando nesse projeto é o [PostgreSQL](https://www.postgresql.org/) e instalado em um servidor [Linux Ubuntu Server](https://ubuntu.com/download/server), mas poderá ser instalado em uma maquina Windows também. 
-Para a criação do banco e suas respectivas tabelas, estou utilizado a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/).
+O SGBD que estamos utilizando nesse projeto é o [PostgreSQL](https://www.postgresql.org/) e o mesmo estava instalado instalado em um servidor [Linux Ubuntu Server](https://ubuntu.com/download/server), mas nada impede que seja instalado localmente em uma maquina Windows 10 Desktop. 
+Para a criação do banco e a a execução dos seus respectivos scripts DDL, utilizamos a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/). 
 
-### Scripts
+### 1.1 - Scripts
+
+Para a criação do banco de dados e suas respectivas tabelas, execute os scripts a seguir:
+
+#### 1.1.1 - DataBase
 
 ```sql
 CREATE DATABASE financeiro TEMPLATE = template0 LC_CTYPE = "pt_BR.UTF-8" LC_COLLATE = "pt_BR.UTF-8";
+```
+
+#### 1.1.2 - Pessoa
+
+```sql
+CREATE TABLE IF NOT EXISTS public.pessoa
+(
+	id BIGSERIAL NOT NULL,
+	nome CHARACTER VARYING(50) NOT NULL,
+    hash_nome CHARACTER VARYING(32) NOT NULL,
+	dt_inclusao TIMESTAMP WITH TIME ZONE NOT NULL,
+	CONSTRAINT pk_pessoa PRIMARY KEY(id)
+);
+
+CREATE INDEX ix_pessoa_hash_nome ON public.pessoa( hash_nome );
+```
+
+#### 1.1.3 - Cliente
+
+```sql
+CREATE TABLE IF NOT EXISTS public.cliente
+(
+	id BIGSERIAL NOT NULL,
+	pessoa_id BIGINT NOT NULL,
+	dt_inclusao TIMESTAMP WITH TIME ZONE NOT NULL,
+	CONSTRAINT pk_cliente PRIMARY KEY(id), 
+	CONSTRAINT fk_cliente_pessoa FOREIGN KEY (pessoa_id) REFERENCES public.pessoa(id)
+);
+```
+
+#### 1.1.4 - Fornecedor
+
+```sql
+CREATE TABLE IF NOT EXISTS public.fornecedor
+(
+	id BIGSERIAL NOT NULL,
+	pessoa_id BIGINT NOT NULL,
+	dt_inclusao TIMESTAMP NOT NULL,
+	CONSTRAINT pk_fornecedor PRIMARY KEY(id), 
+	CONSTRAINT fk_fornecedor_pessoa FOREIGN KEY (pessoa_id) REFERENCES public.pessoa(id)
+);
+```
+
+#### 1.1.5 - Categoria
+
+```sql
+CREATE TABLE IF NOT EXISTS public.categoria
+(
+    id SERIAL NOT NULL,
+    nome CHARACTER VARYING(50) NOT NULL,
+    tipo CHAR(1) NOT NULL,
+	CONSTRAINT pk_categoria PRIMARY KEY(id) 
+);
+
+COMMENT ON TABLE public.categoria IS 'Categoria de Títulos. Tipo: E = Entrada e S = Saída';
+```
+
+#### 1.1.6 - Extrato
+```sql
+CREATE TABLE IF NOT EXISTS public.extrato 
+(
+    id BIGSERIAL NOT NULL,
+    tipo CHAR(1) NOT NULL,
+    descricao CHARACTER VARYING(50) NOT NULL,
+    valor DECIMAL NOT NULL,
+    saldo DECIMAL NOT NULL,
+    valor_relatorio DECIMAL NOT NULL,
+    dt_extrato TIMESTAMP NOT NULL,
+    dt_inclusao TIMESTAMP NOT NULL,
+	CONSTRAINT pk_extrato PRIMARY KEY(id) 
+);
+
+COMMENT ON TABLE public.categoria IS 'Extrato - Tipo: D = Débito e C = Crédito';
 ```
 
 
