@@ -11,13 +11,14 @@
 
 <p display="inline-block">
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221402014-c571b02c-2f9a-4714-9b66-b3723a5bd667.png" alt="csharp-logo"/>
-  <img width="48" src="https://user-images.githubusercontent.com/62816438/221403317-14cf5632-fc7e-44ce-a79d-f1db77601440.png" alt="fluentvalidation-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221403370-29d0ab19-e406-4581-bc98-838691b4968a.png" alt="fluentvalidation-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403187-df0d20a4-d15b-4f68-b449-450500d1ad49.png" alt="automapper-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403028-b4f6ceec-b1b4-48d9-8fca-4a2adab8227f.png" alt="dapper-logo"/>
 </p>
 
   
   
+![fluent-validation]()
 
 
 
