@@ -1,5 +1,6 @@
 # API - Fluxo de Caixa Financeiro Básico
-Use this template as a starting point for any static HTML website project that you want other people to collaborate on.
+<p><i>Repositório para versionamento e documentação básica do projeto Fluxo de Caixa no GitHub.</i></p>
+
 
 **STATUS: This project is actively used in production environments.**
 
