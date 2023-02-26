@@ -18,6 +18,14 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221404176-630c9bc1-de1c-4b1b-ad74-8e26bc07b6cb.png" alt="dotnetcore-logo"/>
 </p>
 
+ - Deploy automatically using GitHub Pages
+ - Test locally with VS Code and the Tasks feature (uses `rake` behind scenes)
+ - Clean folder structure
+ - Automatic testing using GitHub Actions
+ - Tests for broken links, broken HTML and other problems
+ - HTTPS by default
+ - Documentation for contributors
+
 
 **STATUS: This project is actively used in production environments.**
 
