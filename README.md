@@ -11,7 +11,7 @@
 
 <p display="inline-block">
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221402014-c571b02c-2f9a-4714-9b66-b3723a5bd667.png" alt="csharp-logo"/>
-  <img width="48" src="https://user-images.githubusercontent.com/62816438/221401749-3f944303-82f3-4113-ad47-4ab6a1a70dec.png" alt="fluentvalidation-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221403238-be75400c-0099-4911-8673-0f3c4214a661.png" alt="fluentvalidation-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403187-df0d20a4-d15b-4f68-b449-450500d1ad49.png" alt="automapper-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221403028-b4f6ceec-b1b4-48d9-8fca-4a2adab8227f.png" alt="dapper-logo"/>
 </p>
@@ -19,6 +19,7 @@
   
   
   
+
 
 
 
