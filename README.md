@@ -3,6 +3,6 @@
 
 <h2>Sobre o projeto</h2>
 
-<p>Este é um repositório para mostrar a implementação e funcionamento de uma Web API onde um comerciante precisa controlar seu fluxo de caixa diário com os lançamentos (débitos e créditos) como também um relatório que disponibilize o saldo consolidado.</p> 
+<p>Este é um repositório para mostrar a implementação e funcionamento de uma aplicação do tipo Web API onde um comerciante precisa controlar seu fluxo de caixa diário com os lançamentos (débitos e créditos) como também um relatório que disponibilize o saldo consolidado.</p> 
 
 <p>Nessa primeira versão, para fins didáticos e com utilizei apenas do meu tempo disponível, o relatório será apenas um retorno em JSON, mas em futuro próximo estarei implemetando o retorno de um arquivo PDF representando o relatório.</p>
