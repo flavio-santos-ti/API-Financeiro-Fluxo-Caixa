@@ -37,26 +37,248 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
 
 ## 3 - Arquitetura
 
+### 3.1 - Aplicação
 <p>
   <img width="480" src="https://user-images.githubusercontent.com/62816438/221408389-4b7a39fe-f81a-4d5a-b7fe-d826ba50ad06.png" alt="arquitetura"/>
 </p>
 
 
-### 1 - Application 
+* **Application** 
+   * A camada **application** Tem a função de receber todas as requisições http e direcioná-las para a camada **business** para aplicar as validações e regras de negócio.
+* **Domain** 
+  * É a área de definição dos modelos, entidades, DTOs e Interfaces.
+* **Business**
+  * Na **business**, concentramos toda a regra de negócio do domínio.
+* **Infrastructure**
+  * Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada **Cross-Cutting**, uma camada destinada a ser utilizada para consumo de API externas.
 
-A camada **application** Tem a função de receber todas as requisições http e direcioná-las para a camada **business** para aplicar as validações e regras de negócio.
+### 3.2 - Servidores
 
-### 2 - Domain 
+Nosso comerciante fictício irá consumir nossa API hospedada em um modelo **colocation** em um plano da **AWS**, o **Amazon Lightsail** que poucos conhecem, onde o cliente paga um valor fixo por EC2 contratado semelhante as hospedagens tradicionais. 
 
-É a área de definição dos modelos, entidades, DTOs e Interfaces.
+O **NGINX** irá atuar como **proxy reverso** e nosso **load-balance** uma vez que ele cumpre bem o papel de balanceamento de carga trazendo mais performance para nossa aplicação.  
 
-### 3 - Business
+<p>
+  <img width="900" src="https://user-images.githubusercontent.com/62816438/221556556-14126850-cb9d-4dcd-94bd-ac9a7d97ec52.png" alt="arquitetura"/>
+</p>
 
-Na **business**, concentramos toda a regra de negócio do domínio.
+#### 3.2.1 - Configurando o NGINX 
 
-### 4 - Infrastructure
+Abaixo, segue arquivo **nginx.conf** do **NGINX** com a configuração do **proxy reverso** e **load balance**:
 
-Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno banco de dados, utilizando ou não algum ORM e a camada **Cross-Cutting**, uma camada destinada a ser utilizada para consumo de API externas.
+```nginx
+events{}
+
+http{
+    include mime.types;
+    default_type 'application/json';
+    add_header 'Access-Control-Allow-Origin' '*' always;
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+    add_header 'Content-Type' 'application/json';    
+    add_header 'Content-Type' 'application/x-www-form-urlencoded';
+    add_header 'Content-Type' 'application/form-data';
+    client_max_body_size 200M;
+	  
+
+	upstream fluxocaixa {
+		server api.financeiro.com.br:81;
+		server api.financeiro.com.br:82;
+		server api.financeiro.com.br:83;
+	}
+
+	server {
+		listen 80;
+		#server_name app.financeiro.com.br;
+		client_max_body_size 200M;
+		server_name 127.0.0.1;
+        gzip on;
+
+		# ----------------------------------------------------------------------
+		# 1 - endpoints da Empresa Financeiro --> http://app.financeiro.com.br/fluxocaixa/
+		# ----------------------------------------------------------------------
+
+		# 1.1 - Cadastrar um Cliente
+		location /fluxocaixa/api/v1/Cliente {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Cliente/;
+		}
+
+		# 1.2 - Listar Clientes
+		location /fluxocaixa/api/v1/Cliente {
+			proxy_method GET;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Cliente/;
+		}
+
+		# 1.3 - Cadastrar um Fornecedor
+		location /fluxocaixa/api/v1/Fornecedor {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Fornecedor/;
+		}
+
+		# 1.4 - Listar Fornecedores
+		location /fluxocaixa/api/v1/Fornecedor {
+			proxy_method GET;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Fornecedor/;
+		}
+
+		# 1.5 - Cadastrar uma Categoria
+		location /fluxocaixa/api/v1/Categoria {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Categoria/;
+		}
+
+		# 1.6 - Listar Categorias 
+		location /fluxocaixa/api/v1/Categoria {
+			proxy_method GET;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Categoria/;
+		}
+
+		# 1.7 - Remover uma Categoria
+		location /fluxocaixa/api/v1/Categoria {
+			proxy_method DELETE;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Categoria/;
+		}
+
+		# 1.8 - Situação do Caixa
+		location /fluxocaixa/api/v1/Caixa/Situacao {
+			proxy_method GET;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Caixa/Situacao/;
+		}
+
+		# 1.9 - Abrir Caixa
+		location /fluxocaixa/api/v1/Caixa/Abrir {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Caixa/Abrir/;
+		}
+
+		# 1.10 - Fechar Caixa
+		location /fluxocaixa/api/v1/Caixa/Fechar {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Caixa/Fechar/;
+		}
+
+		# 1.11 - Registrar um Recebimento
+		location /fluxocaixa/api/v1/TituloReceber {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/TituloReceber/;
+		}
+
+		# 1.12 - Listar os Recebimentos registrados
+		location /fluxocaixa/api/v1/TituloReceber {
+			proxy_method GET;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/TituloReceber/;
+		}
+
+		# 1.13 - Registrar um Pagamento
+		location /fluxocaixa/api/v1/TituloPagar {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/TituloPagar/;
+		}
+
+		# 1.14 - Listar os Pagamentos registrados
+		location /fluxocaixa/api/v1/TituloPagar {
+			proxy_method GET;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/TituloPagar/;
+		}
+
+		# 1.15 - Emitir um Extrato
+		location /fluxocaixa/api/v1/Extrato {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Extrato/;
+		}
+
+		# 1.15 - Emitir um Extrato
+		location /fluxocaixa/api/v1/Extrato {
+			proxy_method POST;
+			proxy_set_header content-type "application/json";
+            		proxy_set_header Upgrade $http_upgrade;
+            		proxy_set_header Host $host;
+		    	proxy_cache_bypass $http_upgrade;
+            		proxy_set_header Connection 'upgrade';
+            		proxy_pass http://fluxocaixa/api/v1/Extrato/;
+		}
+
+
+	}
+
+}
+```
+
 
 ## 4 - Banco de Dados
 
@@ -73,7 +295,9 @@ Na Entidade **Pessoa** para fins didáticos, não estamos utilizando o campo **C
   <img width="1050" src="https://user-images.githubusercontent.com/62816438/221549322-7ced45d0-6872-4b73-b1fe-c12867b6def0.png" alt="arquitetura"/>
 </p>
 
-
+<p>
+  <img width="1050" src="https://user-images.githubusercontent.com/62816438/221553552-01159273-a58e-49ac-9939-b9fe2cde7ea6.png" alt="arquitetura"/>
+</p>
 
 
 ### 4.2 - Scripts
