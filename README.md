@@ -63,17 +63,20 @@ Dividida em duas subcamadas, o Data, onde são realziadas as persistênciasno ba
 O SGBD que estamos utilizando nesse projeto é o [PostgreSQL](https://www.postgresql.org/) e o mesmo estava instalado instalado em um servidor [Linux Ubuntu Server](https://ubuntu.com/download/server), mas nada impede que seja instalado localmente em uma maquina Windows 10 Desktop. 
 Para a criação do banco e a a execução dos seus respectivos scripts DDL, utilizamos a ferramenta [Pg Admin 4](https://www.pgadmin.org/download/pgadmin-4-windows/). 
 
-### 4.1 - Scripts
+### 4.1 - Modelagem
 
-Para a criação do banco de dados e suas respectivas tabelas, execute os scripts a seguir:
 
-#### 4.1.1 - DataBase
+### 4.2 - Scripts
+
+Scripts necessários para a criação do banco de dados esuas respecitvas  tabelas:
+
+#### 4.2.1 Banco de Dados
 
 ```sql
 CREATE DATABASE financeiro TEMPLATE = template0 LC_CTYPE = "pt_BR.UTF-8" LC_COLLATE = "pt_BR.UTF-8";
 ```
 
-#### 4.1.2 - Pessoa
+##### 4.2.2 - Pessoa
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.pessoa
@@ -88,7 +91,7 @@ CREATE TABLE IF NOT EXISTS public.pessoa
 CREATE INDEX ix_pessoa_hash_nome ON public.pessoa( hash_nome );
 ```
 
-#### 4.1.3 - Cliente
+#### 4.2.3 - Cliente
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.cliente
@@ -101,7 +104,7 @@ CREATE TABLE IF NOT EXISTS public.cliente
 );
 ```
 
-#### 4.1.4 - Fornecedor
+#### 4.2.4 - Fornecedor
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.fornecedor
@@ -114,7 +117,7 @@ CREATE TABLE IF NOT EXISTS public.fornecedor
 );
 ```
 
-#### 4.1.5 - Categoria
+#### 4.2.5 - Categoria
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.categoria
@@ -128,7 +131,7 @@ CREATE TABLE IF NOT EXISTS public.categoria
 COMMENT ON TABLE public.categoria IS 'Categoria de Títulos. Tipo: E = Entrada e S = Saída';
 ```
 
-#### 4.1.6 - Extrato
+#### 4.2.6 - Extrato
 ```sql
 CREATE TABLE IF NOT EXISTS public.extrato 
 (
@@ -146,7 +149,7 @@ CREATE TABLE IF NOT EXISTS public.extrato
 COMMENT ON TABLE public.categoria IS 'Extrato - Tipo: D = Débito e C = Crédito';
 ```
 
-#### 4.1.7 - Saldos Diários
+#### 4.2.7 - Saldos Diários
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.saldo_diario 
@@ -166,7 +169,7 @@ CREATE INDEX ix_saldo_diario_periodo ON public.saldo_diario( dt_saldo, tipo );
 COMMENT ON TABLE public.saldo_diario IS 'Extrato - Tipo: I = Inicial e F = Final';
 ```
 
-#### 4.1.8 - Títulos a Pagar
+#### 4.2.8 - Títulos a Pagar
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.titulo_pagar
@@ -186,7 +189,7 @@ CREATE TABLE IF NOT EXISTS public.titulo_pagar
 );
 ```
 
-#### 4.1.9 - Títulos a Receber
+#### 4.2.9 - Títulos a Receber
 ```SQL
 CREATE TABLE IF NOT EXISTS public.titulo_receber
 (
