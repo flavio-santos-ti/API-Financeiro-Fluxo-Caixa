@@ -3,7 +3,7 @@
 
 | Autor | Última alteração     |
 | :------------- | :------------- |
-| Flávio dos Santos   | 26 Fevereiro de 2019 |
+| Flávio dos Santos   | 27 Fevereiro de 2022 |
 ## 1 - Sobre o projeto
 
 Este é um repositório para mostrar a implementação e o funcionamento de uma aplicação do tipo Web API onde um comerciante precisa controlar seu fluxo de caixa diário com os lançamentos (débitos e créditos) como também um relatório que disponibilize o saldo consolidado.
@@ -556,6 +556,7 @@ Para baixar a API, faço o git clone do projeto:
 
 ```sh
 
+git clone https://github.com/flavio-santos-ti/API-Financeiro-Fluxo-Caixa.git
 
 ```
 
