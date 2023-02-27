@@ -552,14 +552,14 @@ CREATE TABLE IF NOT EXISTS public.titulo_receber
 
 ## 5 - Aplicação
 
-Para baixar a API, faço o git clone do projeto:
+Para baixar a API, execute o git clone do projeto:
 
 ```sh
 
 git clone https://github.com/flavio-santos-ti/API-Financeiro-Fluxo-Caixa.git
 
 ```
-
+Para executar o projeto localmente, abra o Visual Studio 2022 e acesse a solução localizado na pasta **Financeiro.FluxoCaixa**.
 
 
 
