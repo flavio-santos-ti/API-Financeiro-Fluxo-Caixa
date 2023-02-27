@@ -65,6 +65,14 @@ Para a criação do banco e a a execução dos seus respectivos scripts DDL, uti
 
 ### 4.1 - Modelagem
 
+sdfds
+
+<p>
+  <img width="480" src="https://user-images.githubusercontent.com/62816438/221549322-7ced45d0-6872-4b73-b1fe-c12867b6def0.png" alt="arquitetura"/>
+</p>
+
+
+
 
 ### 4.2 - Scripts
 
