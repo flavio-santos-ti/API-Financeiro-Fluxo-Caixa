@@ -23,6 +23,7 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221404176-630c9bc1-de1c-4b1b-ad74-8e26bc07b6cb.png" alt="dotnetcore-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221405368-aeaed761-e962-4a3b-bc9c-7a5c7f1543b5.png" alt="docker-logo"/>
   <img width="48" src="https://user-images.githubusercontent.com/62816438/221405737-87bc0545-83ea-49cb-8e6d-d5dbb06f91dc.png" alt="ubuntu-logo"/>
+  <img width="48" src="https://user-images.githubusercontent.com/62816438/221621748-124b8a8c-dd15-4d8d-8139-b98f11e36c62.png" alt="ubuntu-logo"/>
 </p>
 
  - C#;
@@ -33,7 +34,8 @@ Nessa primeira versão, para fins didáticos e também como utilizei apenas do m
  - EF .NET Core 6;
  - Visual Studio 2022;
  - Docker;
- - Linux Ubuntu Server.
+ - Linux Ubuntu Server;
+ - Swagger.
 
 ## 3 - Arquitetura
 
