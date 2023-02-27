@@ -279,6 +279,114 @@ http{
 }
 ```
 
+Após a configuração do arquivo **nginx.conf**, basta reiniciar o **NGINX** para que as alterações no arquivo conf tenha efeito:
+
+```nginx
+sudo service nginx restart
+```
+
+#### 3.2.2 - Configurando o DockerFile
+
+Em nosso caso, não vamos utilizar o docker file minimalista, onde iremos disponibilizar a build de nossa API em uma pasta específica para que o docker apenas copie a mesma para dentro do container:
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 
+WORKDIR /app/data
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+COPY /build /app
+
+ENTRYPOINT ["dotnet", "Financeiro.FluxoCaixa.dll"]
+```
+
+#### 3.2.3 - Configurando o Docker-Compose
+
+Agora vamos configurar os 3(três) arquivos onde iremos subir nossas builds e com isso podemos atualizá-las de forma incremental uma a uma sem deixar nossa API indisponível. O primeiro arquivo iremos subir nossa aplicação na porta 81:
+
+```yaml
+# -- Lista as imagens Ativas e Inativas
+# docker ps -a 
+# docker-compose -f docker-compose.yaml up -d
+# docker-compose -f docker-compose.yaml down --rmi local
+version: "3.8"
+# ------- serviços -----------------------------
+services:
+  api:
+    container_name: api-fluxocaixa
+    ports:
+      - "81:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+       - /mnt/arquivos:/app/data
+    restart: always
+```
+
+O segundo arquivo, iremos subir nossa aplicação na porta 82:
+
+```yaml
+# -- Lista as imagens Ativas e Inativas
+# docker ps -a 
+# docker-compose -f docker-compose.yaml up -d
+# docker-compose -f docker-compose.yaml down --rmi local
+version: "3.8"
+# ------- serviços -----------------------------
+services:
+  api:
+    container_name: api-fluxocaixa
+    ports:
+      - "82:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+       - /mnt/arquivos:/app/data
+    restart: always
+```
+
+E o terceiro e último arquivo, iremos subir nossa aplicação na porta 83:
+
+```yaml
+# -- Lista as imagens Ativas e Inativas
+# docker ps -a 
+# docker-compose -f docker-compose.yaml up -d
+# docker-compose -f docker-compose.yaml down --rmi local
+version: "3.8"
+# ------- serviços -----------------------------
+services:
+  api:
+    container_name: api-fluxocaixa
+    ports:
+      - "83:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+       - /mnt/arquivos:/app/data
+    restart: always
+```
+
+Para subir os contaners, basta executar o comando abaixo:
+
+```sh
+
+docker-compose -f docker-compose.yaml up -d
+
+```
+
+E caso queira parar um container específico para realizar atualização:
+
+```sh
+
+docker-compose -f docker-compose.yaml down --rmi local
+
+```
+
+É importante lembrar que deve-se criar uma pasta para cada instância de container que deseja subir, podendo até ser api81, api82 e api83. E dentro dessas pastas os arquivos, Dockerfile, docker-compose.yaml e a pasta build com a release do projeto .NET.
+Os comandos de subida e stop dos container devem ser aplicados dentro de cada respectivas pastas/diretórios. 
 
 ## 4 - Banco de Dados
 
@@ -442,7 +550,14 @@ CREATE TABLE IF NOT EXISTS public.titulo_receber
 );
 ```
 
+## 5 - Aplicação
 
+Para baixar a API, faço o git clone do projeto:
+
+```sh
+
+
+```
 
 
 
