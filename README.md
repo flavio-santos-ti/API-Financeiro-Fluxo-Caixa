@@ -559,7 +559,21 @@ Para baixar a API, execute o git clone do projeto:
 git clone https://github.com/flavio-santos-ti/API-Financeiro-Fluxo-Caixa.git
 
 ```
-Para executar o projeto localmente, abra o Visual Studio 2022 e acesse a solução localizado na pasta **Financeiro.FluxoCaixa**.
+Para executar o projeto localmente, abra o Visual Studio 2022 e acesse a solução localizado na pasta **API-Financeiro-Fluxo-Caixa\Financeiro.FluxoCaixa** arquivo **Financeiro.FluxoCaixa.sln**. Em seguida e execute-o e o swagger será aberto com toda a documentação da API.
+
+<p>
+  <img width="1050" src="https://user-images.githubusercontent.com/62816438/221620131-521dfa97-ff40-4fb4-b1d2-b570533eb1a4.png" alt="arquitetura"/>
+</p>
+
+<p>
+  <img width="1050" src="https://user-images.githubusercontent.com/62816438/221620896-672e5c2e-6efc-403a-b66b-722af31ea347.png" alt="arquitetura"/>
+</p>
+
+
+
+
+
+
 
 
 
