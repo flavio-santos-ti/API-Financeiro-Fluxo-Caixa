@@ -195,16 +195,16 @@ CREATE TABLE IF NOT EXISTS public.titulo_receber
 (
     id BIGSERIAL NOT NULL,
     categoria_id INT NOT NULL,
+    cliente_id BIGINT DEFAULT NULL,
     descricao CHARACTER VARYING(50) NOT NULL,
     valor_real DECIMAL NOT NULL,
     dt_real TIMESTAMP,
-    cliente_id BIGINT DEFAULT NULL,
     dt_inclusao TIMESTAMP NOT NULL,
     extrato_id BIGINT NOT NULL,
-	CONSTRAINT pk_titulo_receber PRIMARY KEY(id), 
-	CONSTRAINT fk_titulo_receber_categoria FOREIGN KEY (categoria_id) REFERENCES public.categoria(id),
-	CONSTRAINT fk_titulo_receber_cliente FOREIGN KEY (cliente_id) REFERENCES public.cliente(id),
-	CONSTRAINT fk_titulo_receber_extrato FOREIGN KEY (extrato_id) REFERENCES public.extrato(id)
+    CONSTRAINT pk_titulo_receber PRIMARY KEY(id), 
+    CONSTRAINT fk_titulo_receber_categoria FOREIGN KEY (categoria_id) REFERENCES public.categoria(id),
+    CONSTRAINT fk_titulo_receber_cliente FOREIGN KEY (cliente_id) REFERENCES public.cliente(id),
+    CONSTRAINT fk_titulo_receber_extrato FOREIGN KEY (extrato_id) REFERENCES public.extrato(id)
 );
 ```
 
