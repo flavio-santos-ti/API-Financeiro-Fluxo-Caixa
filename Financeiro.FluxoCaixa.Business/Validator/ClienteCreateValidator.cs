@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Domain.DTO.Cliente.Validator;
+namespace Financeiro.FluxoCaixa.Business.Validator;
 
-public class ClienteCreateDTOValidator : AbstractValidator<ClienteCreateDto>
+public class ClienteCreateValidator : AbstractValidator<ClienteCreateDto>
 {
-    public ClienteCreateDTOValidator()
+    public ClienteCreateValidator()
     {
         RuleFor(x => x.Nome).NotNull().NotEmpty().WithMessage("O nome é de preenchimento obrigatório");
     }

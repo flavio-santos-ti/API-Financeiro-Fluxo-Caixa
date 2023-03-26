@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Business.Profile;
+namespace Financeiro.FluxoCaixa.Business.Mappers;
 
-public class TituloPagarProfile : AutoMapper.Profile
+public class TituloPagarMapper : AutoMapper.Profile
 {
-    public TituloPagarProfile()
+    public TituloPagarMapper()
     {
         CreateMap<TituloPagar, TituloPagarCreateDto>().ReverseMap();
     }

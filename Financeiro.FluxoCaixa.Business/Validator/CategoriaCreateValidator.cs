@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Domain.DTO.Categoria.Validator;
+namespace Financeiro.FluxoCaixa.Business.Validator;
 
-public class CategoriaCreateDTOValidator : AbstractValidator<CategoriaCreateDto>
+public class CategoriaCreateValidator : AbstractValidator<CategoriaCreateDto>
 {
-    public CategoriaCreateDTOValidator()
+    public CategoriaCreateValidator()
     {
         RuleFor(x => x.Nome).NotNull().NotEmpty().NotEqual("string").WithMessage("A nome deve ser informada!");
         RuleFor(x => x.Tipo).NotNull().NotEmpty().NotEqual("string").WithMessage("O tipo deve ser informada!");
