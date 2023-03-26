@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Map;
+namespace Financeiro.FluxoCaixa.Infra.Data.Mappings;
 
-public class ClienteMap : IEntityTypeConfiguration<Cliente>
+public class ClienteMapping : IEntityTypeConfiguration<Cliente>
 {
     public void Configure(EntityTypeBuilder<Cliente> builder)
     {

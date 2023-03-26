@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Map;
+namespace Financeiro.FluxoCaixa.Infra.Data.Mappings;
 
-public class TituloReceberMap : IEntityTypeConfiguration<TituloReceber>
+public class TituloPagarMapping : IEntityTypeConfiguration<TituloPagar>
 {
-    public void Configure(EntityTypeBuilder<TituloReceber> builder)
+    public void Configure(EntityTypeBuilder<TituloPagar> builder)
     {
-        builder.ToTable("titulo_receber");
+        builder.ToTable("titulo_pagar");
 
         builder.HasKey(x => x.Id);
 
@@ -22,7 +22,7 @@ public class TituloReceberMap : IEntityTypeConfiguration<TituloReceber>
         builder.Property(x => x.Descricao).HasColumnName("descricao");
         builder.Property(x => x.ValorReal).HasColumnName("valor_real");
         builder.Property(x => x.DataReal).HasColumnName("dt_real");
-        builder.Property(x => x.ClienteId).HasColumnName("cliente_id");
+        builder.Property(x => x.FornecedorId).HasColumnName("fornecedor_id");
         builder.Property(x => x.DataInclusao).HasColumnName("dt_inclusao");
         builder.Property(x => x.ExtratoId).HasColumnName("extrato_id");
     }

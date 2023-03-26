@@ -1,5 +1,5 @@
 ﻿using Financeiro.FluxoCaixa.Domain.Entities;
-using Financeiro.FluxoCaixa.Infra.Data.Map;
+using Financeiro.FluxoCaixa.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;

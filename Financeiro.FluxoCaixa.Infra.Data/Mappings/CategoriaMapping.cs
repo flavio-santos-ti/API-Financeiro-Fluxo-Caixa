@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Map;
+namespace Financeiro.FluxoCaixa.Infra.Data.MapMappings;
 
-public class CategoriaMap : IEntityTypeConfiguration<Categoria>
+public class CategoriaMapping : IEntityTypeConfiguration<Categoria>
 {
     public void Configure(EntityTypeBuilder<Categoria> builder)
     {

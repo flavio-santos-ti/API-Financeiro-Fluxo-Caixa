@@ -7,24 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Map;
+namespace Financeiro.FluxoCaixa.Infra.Data.Mappings;
 
-public class ExtratoMap : IEntityTypeConfiguration<Extrato>
+public class SaldoDiarioMapping : IEntityTypeConfiguration<SaldoDiario>
 {
-    public void Configure(EntityTypeBuilder<Extrato> builder)
+    public void Configure(EntityTypeBuilder<SaldoDiario> builder)
     {
-        builder.ToTable("extrato");
+        builder.ToTable("saldo_diario");
 
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id).HasColumnName("id");
+        builder.Property(x => x.DataSaldo).HasColumnName("dt_saldo");
         builder.Property(x => x.Tipo).HasColumnName("tipo");
-        builder.Property(x => x.Descricao).HasColumnName("descricao");
         builder.Property(x => x.Valor).HasColumnName("valor");
-        builder.Property(x => x.Saldo).HasColumnName("saldo");
-        builder.Property(x => x.ValorRelatorio).HasColumnName("valor_relatorio");
-        builder.Property(x => x.DataExtrato).HasColumnName("dt_extrato");
         builder.Property(x => x.DataInclusao).HasColumnName("dt_inclusao");
+        builder.Property(x => x.ExtratoId).HasColumnName("extrato_id");
     }
 
 }
