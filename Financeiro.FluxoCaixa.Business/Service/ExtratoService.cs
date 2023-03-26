@@ -1,8 +1,8 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Extrato;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
@@ -27,7 +27,7 @@ public class ExtratoService : BaseService, IExtratoService
         _saldoDiarioService = saldoDiarioService;
     }
 
-    public async Task<ResultCreateDTO> SetRegistrarDebito(DbContext ctx, TituloPagarCreateDTO dados)
+    public async Task<ResultCreateDto> SetRegistrarDebito(DbContext ctx, TituloPagarCreateDto dados)
     {
 
         decimal saldoAnterior = await _saldoDiarioService.GetSaldoAnteriorAsync(ctx, dados.DataReal);
@@ -46,7 +46,7 @@ public class ExtratoService : BaseService, IExtratoService
         return await _extratoRepository.SetIncluirAsync(ctx, debitoNew);
     }
 
-    public async Task<ResultCreateDTO> SetRegistrarDebito(DbContext ctx, ExtratoCreateDTO dados)
+    public async Task<ResultCreateDto> SetRegistrarDebito(DbContext ctx, ExtratoCreateDto dados)
     {
         Extrato debitoNew = new();
 
@@ -62,7 +62,7 @@ public class ExtratoService : BaseService, IExtratoService
     }
 
 
-    public async Task<ResultCreateDTO> SetRegistrarCredito(DbContext ctx, TituloReceberCreateDTO dados)
+    public async Task<ResultCreateDto> SetRegistrarCredito(DbContext ctx, TituloReceberCreateDto dados)
     {
         decimal saldoAnterior = await _saldoDiarioService.GetSaldoAnteriorAsync(ctx, dados.DataReal);
 
@@ -79,7 +79,7 @@ public class ExtratoService : BaseService, IExtratoService
         return await _extratoRepository.SetIncluirAsync(ctx, debitoNew);
     }
 
-    public async Task<ResultCreateDTO> SetRegistrarCredito(DbContext ctx, ExtratoCreateDTO dados)
+    public async Task<ResultCreateDto> SetRegistrarCredito(DbContext ctx, ExtratoCreateDto dados)
     {
         Extrato debitoNew = new();
 
@@ -95,12 +95,12 @@ public class ExtratoService : BaseService, IExtratoService
     }
 
 
-    public async Task<IEnumerable<ExtratoDTO>> GetListarAsync(ExtratoFiltroDTO filtro)
+    public async Task<IEnumerable<ExtratoDto>> GetListarAsync(ExtratoFiltroDto filtro)
     {
         return await _extratoRepository.GetListarAsync(filtro);
     }
 
-    public async Task<decimal> GetSomarAsync(ExtratoFiltroDTO filtro)
+    public async Task<decimal> GetSomarAsync(ExtratoFiltroDto filtro)
     {
         return await _extratoRepository.GetSomarAsync(filtro);
     }

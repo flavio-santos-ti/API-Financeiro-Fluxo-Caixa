@@ -1,10 +1,11 @@
-﻿using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Infra.Data.Map;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,20 +30,13 @@ public class DatabaseContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string? connectionString = _configuration.GetConnectionString("PgSqlConnection");
+        string connectionString = _configuration.GetConnectionString("PgSqlConnection");
         optionsBuilder.UseNpgsql(connectionString);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new PessoaMap());
-        modelBuilder.ApplyConfiguration(new ClienteMap());
-        modelBuilder.ApplyConfiguration(new FornecedorMap());
-        modelBuilder.ApplyConfiguration(new TituloPagarMap());
-        modelBuilder.ApplyConfiguration(new TituloReceberMap());
-        modelBuilder.ApplyConfiguration(new CategoriaMap());
-        modelBuilder.ApplyConfiguration(new ExtratoMap());
-        modelBuilder.ApplyConfiguration(new SaldoDiarioMap());
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
 }

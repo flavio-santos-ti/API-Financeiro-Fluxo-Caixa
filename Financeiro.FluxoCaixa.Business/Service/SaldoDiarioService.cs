@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +26,7 @@ public class SaldoDiarioService : BaseService, ISaldoDiarioService
         return await _saldoDiarioRepository.GetNoTrackingAsync(ctx, data, tipo);        
     }
 
-    public async Task<ResultCreateDTO> SetRegistrarAsync(DbContext ctx, SaldoDiario dados)
+    public async Task<ResultCreateDto> SetRegistrarAsync(DbContext ctx, SaldoDiario dados)
     {
         return await _saldoDiarioRepository.SetIncluirAsync(ctx, dados);
     }

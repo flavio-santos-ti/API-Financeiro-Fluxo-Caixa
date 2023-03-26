@@ -1,7 +1,7 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Extrato;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.SaldoDiario;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.SaldoDiario;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +20,7 @@ public class SaldoDiarioRepository : BaseRepository, ISaldoDiarioRepository
     {
     }
 
-    public async Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, SaldoDiario dados)
+    public async Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, SaldoDiario dados)
     {
         var context = (DatabaseContext)ctx;
 
@@ -79,7 +79,7 @@ public class SaldoDiarioRepository : BaseRepository, ISaldoDiarioRepository
         return saldo;
     }
 
-    public async Task<IEnumerable<SaldoDiarioDTO>> GetListarAsync(SaldoDiarioFiltroDTO filtro)
+    public async Task<IEnumerable<SaldoDiarioDto>> GetListarAsync(SaldoDiarioFiltroDto filtro)
     {
         const string sqlQuery = @"
         SELECT
@@ -94,7 +94,7 @@ public class SaldoDiarioRepository : BaseRepository, ISaldoDiarioRepository
           AND dt_saldo BETWEEN @DataInicial AND @DataFinal
         ";
 
-        return await base.ListarAsync<SaldoDiarioDTO>(sqlQuery, filtro);
+        return await base.ListarAsync<SaldoDiarioDto>(sqlQuery, filtro);
     }
 
     public async Task<SaldoDiario> GetNoTrackingAsync(DbContext ctx, DateTime data, string tipo)

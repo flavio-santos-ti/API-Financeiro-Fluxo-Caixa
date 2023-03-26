@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Caixa;
-using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Caixa;
+using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +18,7 @@ public class CaixaController : ControllerBase
     }
 
     [HttpPost("Abrir")]
-    public async Task<IActionResult> SetAbrirAsync(CaixaCreateDTO dados)
+    public async Task<IActionResult> SetAbrirAsync(CaixaCreateDto dados)
     {
         var caixa = await _service.SetAbrirAsync(dados);
 
@@ -33,7 +33,7 @@ public class CaixaController : ControllerBase
     }
 
     [HttpPost("Fechar")]
-    public async Task<IActionResult> SetFecharAsync(CaixaCreateDTO dados)
+    public async Task<IActionResult> SetFecharAsync(CaixaCreateDto dados)
     {
         var caixa = await _service.SetFecharAsync(dados);
 

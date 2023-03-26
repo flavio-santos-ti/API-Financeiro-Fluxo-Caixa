@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
-using Financeiro.FluxoCaixa.Domain.Entity;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
@@ -39,7 +39,7 @@ public class TituloPagarService : BaseService, ITituloPagarService
         _saldoDiarioService = saldoDiarioService;
     }
 
-    private async Task<ResultCreateDTO> ParseAsync(DbContext ctx, TituloPagarCreateDTO dados)
+    private async Task<ResultCreateDto> ParseAsync(DbContext ctx, TituloPagarCreateDto dados)
     {
         var context = (DatabaseContext)ctx;
 
@@ -58,7 +58,7 @@ public class TituloPagarService : BaseService, ITituloPagarService
         return base.ResultCreate(true, string.Empty, 0);
     }
 
-    public async Task<ResultCreateDTO> SetPagarAsync(TituloPagarCreateDTO dados)
+    public async Task<ResultCreateDto> SetPagarAsync(TituloPagarCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
@@ -115,7 +115,7 @@ public class TituloPagarService : BaseService, ITituloPagarService
         }
     }
 
-    public async Task<IEnumerable<TituloPagarDTO>> GetListarAsync()
+    public async Task<IEnumerable<TituloPagarDto>> GetListarAsync()
     {
         return await _tituloPagarRepository.GetListarAsync();
     }

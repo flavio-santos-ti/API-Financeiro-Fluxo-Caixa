@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Financeiro.FluxoCaixa.Domain.DTO.Fornecedor;
-using Financeiro.FluxoCaixa.Domain.DTO.Pessoa;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+using Financeiro.FluxoCaixa.Domain.Dtos.Fornecedor;
+using Financeiro.FluxoCaixa.Domain.Dtos.Pessoa;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
@@ -32,7 +32,7 @@ public class FornecedorService : BaseService, IFornecedorService
         _fornecedorRepository = fornecedorRepository;
     }
 
-    private async Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, long idPessoa)
+    private async Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, long idPessoa)
     {
         var context = (DatabaseContext)ctx;
 
@@ -59,19 +59,19 @@ public class FornecedorService : BaseService, IFornecedorService
         return await _fornecedorRepository.GetNoTrackingAsync(context, idFornecedor);
     }
 
-    public async Task<IEnumerable<FornecedorDTO>> GetListarAsync()
+    public async Task<IEnumerable<FornecedorDto>> GetListarAsync()
     {
         return await _fornecedorRepository.GetListarAsync();
     }
 
 
-    public async Task<ResultCreateDTO> SetCadastrarAsync(FornecedorCreateDTO dados)
+    public async Task<ResultCreateDto> SetCadastrarAsync(FornecedorCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
             using (IDbContextTransaction transaction = await context.Database.BeginTransactionAsync())
             {
-                var pessoaCreate = _mapper.Map<PessoaCreateDTO>(dados);
+                var pessoaCreate = _mapper.Map<PessoaCreateDto>(dados);
 
                 var pessoa = await _pessoaService.SetIncluirAsync(context, pessoaCreate);
 
@@ -111,7 +111,7 @@ public class FornecedorService : BaseService, IFornecedorService
 
     }
 
-    public async Task<ResultCreateDTO> ParseAsync(DbContext ctx, long id)
+    public async Task<ResultCreateDto> ParseAsync(DbContext ctx, long id)
     {
         var context = (DatabaseContext)ctx;
 

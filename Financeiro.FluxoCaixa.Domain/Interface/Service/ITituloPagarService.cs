@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace Financeiro.FluxoCaixa.Domain.Interface.Service;
 
 public interface ITituloPagarService
 {
-    Task<ResultCreateDTO> SetPagarAsync(TituloPagarCreateDTO dados);
-    Task<IEnumerable<TituloPagarDTO>> GetListarAsync();
+    Task<ResultCreateDto> SetPagarAsync(TituloPagarCreateDto dados);
+    Task<IEnumerable<TituloPagarDto>> GetListarAsync();
 }

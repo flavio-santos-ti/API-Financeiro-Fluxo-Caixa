@@ -1,20 +1,13 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 
 namespace Financeiro.FluxoCaixa.Domain.Interface.Service;
 
 public interface IClienteService
 {
-    Task<ResultCreateDTO> SetCadastrarAsync(ClienteCreateDTO dados);
-    Task<IEnumerable<ClienteDTO>> GetListarAsync();
-    Task<ResultCreateDTO> ParseAsync(DbContext ctx, long id);
+    Task<ResultCreateDto> SetCadastrarAsync(ClienteCreateDto dados);
+    Task<IEnumerable<ClienteDto>> GetListarAsync();
+    Task<ResultCreateDto> ParseAsync(DbContext ctx, long id);
 }

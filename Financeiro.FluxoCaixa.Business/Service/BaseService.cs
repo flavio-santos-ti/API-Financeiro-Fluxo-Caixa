@@ -1,4 +1,4 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -40,9 +40,9 @@ public class BaseService
                 .ToArray());
     }
 
-    protected ResultCreateDTO ResultCreate(bool successed, string message, long id)
+    protected ResultCreateDto ResultCreate(bool successed, string message, long id)
     {
-        ResultCreateDTO resultCreate = new();
+        ResultCreateDto resultCreate = new();
 
         resultCreate.Successed = successed;
         resultCreate.Message = message;
@@ -51,9 +51,9 @@ public class BaseService
         return resultCreate;
     }
 
-    protected ResultDeleteDTO ResultDelete(bool successed, string message, int count)
+    protected ResultDeleteDto ResultDelete(bool successed, string message, int count)
     {
-        ResultDeleteDTO resultDelete = new();
+        ResultDeleteDto resultDelete = new();
 
         resultDelete.Successed = successed;
         resultDelete.Message = message;

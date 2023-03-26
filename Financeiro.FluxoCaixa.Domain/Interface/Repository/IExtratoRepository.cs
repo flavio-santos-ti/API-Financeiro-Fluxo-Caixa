@@ -1,7 +1,7 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Extrato;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,8 +13,8 @@ namespace Financeiro.FluxoCaixa.Domain.Interface.Repository;
 
 public interface IExtratoRepository
 {
-    Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, Extrato dados);
-    Task<IEnumerable<ExtratoDTO>> GetListarAsync(ExtratoFiltroDTO filtro);
-    Task<decimal> GetSomarAsync(ExtratoFiltroDTO filtro);
+    Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, Extrato dados);
+    Task<IEnumerable<ExtratoDto>> GetListarAsync(ExtratoFiltroDto filtro);
+    Task<decimal> GetSomarAsync(ExtratoFiltroDto filtro);
     Task<decimal> GetSomarAsync(DbContext ctx, DateTime data);
 }

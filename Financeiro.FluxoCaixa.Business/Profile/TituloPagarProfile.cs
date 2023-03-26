@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,6 @@ public class TituloPagarProfile : AutoMapper.Profile
 {
     public TituloPagarProfile()
     {
-        CreateMap<TituloPagar, TituloPagarCreateDTO>().ReverseMap();
+        CreateMap<TituloPagar, TituloPagarCreateDto>().ReverseMap();
     }
 }

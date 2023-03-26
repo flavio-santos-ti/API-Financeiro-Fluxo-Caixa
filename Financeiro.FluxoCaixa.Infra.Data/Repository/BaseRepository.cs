@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using Financeiro.FluxoCaixa.Domain.DTO.Fornecedor;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.Fornecedor;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System;
@@ -25,9 +25,9 @@ public class BaseRepository
         _connectionString = _configuration.GetConnectionString("PgSqlConnection");
     }
 
-    protected ResultCreateDTO ResultCreate(bool successed, string message, long id)
+    protected ResultCreateDto ResultCreate(bool successed, string message, long id)
     {
-        ResultCreateDTO resultCreate = new();
+        ResultCreateDto resultCreate = new();
 
         resultCreate.Successed = successed;
         resultCreate.Message = message;
@@ -36,9 +36,9 @@ public class BaseRepository
         return resultCreate;
     }
 
-    protected ResultDeleteDTO ResultDelete(bool successed, string message, int count)
+    protected ResultDeleteDto ResultDelete(bool successed, string message, int count)
     {
-        ResultDeleteDTO resultDelete = new();
+        ResultDeleteDto resultDelete = new();
 
         resultDelete.Successed = successed;
         resultDelete.Message = message;

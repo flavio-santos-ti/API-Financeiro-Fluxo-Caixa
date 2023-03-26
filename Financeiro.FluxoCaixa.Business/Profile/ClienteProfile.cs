@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.Pessoa;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.Pessoa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,6 @@ public class ClienteProfile : AutoMapper.Profile
 {
     public ClienteProfile()
     {
-       CreateMap<ClienteCreateDTO, PessoaCreateDTO> ().ReverseMap();
+       CreateMap<ClienteCreateDto, PessoaCreateDto> ().ReverseMap();
     }
 }

@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -12,16 +12,16 @@ namespace Financeiro.FluxoCaixa.Controllers.V1;
 public class TituloPagarController : ControllerBase
 {
     private readonly ITituloPagarService _service;
-    private readonly IValidator<TituloPagarCreateDTO> _validatorTituloCreate;
+    private readonly IValidator<TituloPagarCreateDto> _validatorTituloCreate;
 
-    public TituloPagarController(ITituloPagarService service, IValidator<TituloPagarCreateDTO> validatorTituloCreate)
+    public TituloPagarController(ITituloPagarService service, IValidator<TituloPagarCreateDto> validatorTituloCreate)
     {
         _service = service;
         _validatorTituloCreate = validatorTituloCreate;
     }
 
     [HttpPost]
-    public async Task<IActionResult> SetCadastrarAsync(TituloPagarCreateDTO dados)
+    public async Task<IActionResult> SetCadastrarAsync(TituloPagarCreateDto dados)
     {
         var validation = await _validatorTituloCreate.ValidateAsync(dados);
 

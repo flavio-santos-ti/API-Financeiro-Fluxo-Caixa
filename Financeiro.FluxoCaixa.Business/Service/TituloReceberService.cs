@@ -1,21 +1,13 @@
 ﻿using AutoMapper;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Entity;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
-using Financeiro.FluxoCaixa.Infra.Data.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financeiro.FluxoCaixa.Business.Service;
 
@@ -43,7 +35,7 @@ public class TituloReceberService : BaseService, ITituloReceberService
     }
 
 
-    public async Task<ResultCreateDTO> ParseAsync(DbContext ctx, TituloReceberCreateDTO dados)
+    public async Task<ResultCreateDto> ParseAsync(DbContext ctx, TituloReceberCreateDto dados)
     {
         var context = (DatabaseContext)ctx;
 
@@ -65,7 +57,7 @@ public class TituloReceberService : BaseService, ITituloReceberService
         return base.ResultCreate(true, string.Empty, 0);
     }
 
-    public async Task<ResultCreateDTO> SetReceberAsync(TituloReceberCreateDTO dados)
+    public async Task<ResultCreateDto> SetReceberAsync(TituloReceberCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
@@ -119,7 +111,7 @@ public class TituloReceberService : BaseService, ITituloReceberService
         }
     }
 
-    public async Task<IEnumerable<TituloReceberDTO>> GetListarAsync()
+    public async Task<IEnumerable<TituloReceberDto>> GetListarAsync()
     {
         return await _tituloReceberRepository.GetListarAsync();
     }

@@ -1,4 +1,4 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Fornecedor;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Fornecedor;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +17,7 @@ public class FornecedorController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> SetCadastrarAsync(FornecedorCreateDTO dados)
+    public async Task<IActionResult> SetCadastrarAsync(FornecedorCreateDto dados)
     {
         var fornecedor = await _service.SetCadastrarAsync(dados);
 

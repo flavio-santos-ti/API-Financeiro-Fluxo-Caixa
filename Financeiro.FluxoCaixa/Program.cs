@@ -1,8 +1,8 @@
 using Financeiro.FluxoCaixa.Business.Service;
-using Financeiro.FluxoCaixa.Domain.DTO.Categoria;
-using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
+using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
+using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
@@ -50,10 +50,10 @@ builder.Services.AddScoped<ISaldoDiarioService, SaldoDiarioService>();
 
 // Fluent Validation
 builder.Services.AddFluentValidationClientsideAdapters();
-builder.Services.AddValidatorsFromAssemblyContaining<ClienteCreateDTO>();
-builder.Services.AddValidatorsFromAssemblyContaining<TituloPagarCreateDTO>();
-builder.Services.AddValidatorsFromAssemblyContaining<TituloReceberCreateDTO>();
-builder.Services.AddValidatorsFromAssemblyContaining<CategoriaCreateDTO>();
+builder.Services.AddValidatorsFromAssemblyContaining<ClienteCreateDto>();
+builder.Services.AddValidatorsFromAssemblyContaining<TituloPagarCreateDto>();
+builder.Services.AddValidatorsFromAssemblyContaining<TituloReceberCreateDto>();
+builder.Services.AddValidatorsFromAssemblyContaining<CategoriaCreateDto>();
 
 builder.Services.AddApiVersioning(p =>
 {

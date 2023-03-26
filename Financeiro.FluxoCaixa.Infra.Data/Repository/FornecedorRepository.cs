@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Fornecedor;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Fornecedor;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +25,7 @@ public class FornecedorRepository : BaseRepository, IFornecedorRepository
         return fornecedor;
     }
 
-    public async Task<IEnumerable<FornecedorDTO>> GetListarAsync()
+    public async Task<IEnumerable<FornecedorDto>> GetListarAsync()
     {
         const string sqlQuery = @"
         SELECT
@@ -39,7 +39,7 @@ public class FornecedorRepository : BaseRepository, IFornecedorRepository
         "
         ;
 
-        return await base.ListarAsync<FornecedorDTO>(sqlQuery);
+        return await base.ListarAsync<FornecedorDto>(sqlQuery);
     }
 
 

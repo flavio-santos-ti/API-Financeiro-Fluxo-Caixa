@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.Pessoa;
-using Financeiro.FluxoCaixa.Domain.Entity;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.Pessoa;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 
 namespace Financeiro.FluxoCaixa.Business.Service;
@@ -18,7 +18,7 @@ public class PessoaService : BaseService, IPessoaService
     {
     }
 
-    public async Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, PessoaCreateDTO dados)
+    public async Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, PessoaCreateDto dados)
     {
         var context = (DatabaseContext)ctx;
 

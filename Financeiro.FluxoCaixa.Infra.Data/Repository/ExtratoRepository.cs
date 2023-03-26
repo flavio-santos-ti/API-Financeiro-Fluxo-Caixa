@@ -1,6 +1,6 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Extrato;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +20,7 @@ public class ExtratoRepository : BaseRepository, IExtratoRepository
     {
     }
 
-    public async Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, Extrato dados)
+    public async Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, Extrato dados)
     {
         try
         {
@@ -41,7 +41,7 @@ public class ExtratoRepository : BaseRepository, IExtratoRepository
         }
     }
 
-    public async Task<IEnumerable<ExtratoDTO>> GetListarAsync(ExtratoFiltroDTO filtro)
+    public async Task<IEnumerable<ExtratoDto>> GetListarAsync(ExtratoFiltroDto filtro)
     {
         const string sqlQuery = @"
         SELECT 
@@ -86,10 +86,10 @@ public class ExtratoRepository : BaseRepository, IExtratoRepository
           VI.Id
         ";
 
-        return await base.ListarAsync<ExtratoDTO>(sqlQuery, filtro);
+        return await base.ListarAsync<ExtratoDto>(sqlQuery, filtro);
     }
 
-    public async Task<decimal> GetSomarAsync(ExtratoFiltroDTO filtro)
+    public async Task<decimal> GetSomarAsync(ExtratoFiltroDto filtro)
     {
         const string sqlQuery = @"
         SELECT

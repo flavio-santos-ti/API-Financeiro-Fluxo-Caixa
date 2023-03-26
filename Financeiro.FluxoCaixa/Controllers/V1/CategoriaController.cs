@@ -1,4 +1,4 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Categoria;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +12,9 @@ namespace Financeiro.FluxoCaixa.Controllers.V1;
 public class CategoriaController : ControllerBase
 {
     private readonly ICategoriaService _service;
-    private readonly IValidator<CategoriaCreateDTO> _validatorCategoriaCreate;
+    private readonly IValidator<CategoriaCreateDto> _validatorCategoriaCreate;
 
-    public CategoriaController(ICategoriaService service, IValidator<CategoriaCreateDTO> validatorClienteCreate)
+    public CategoriaController(ICategoriaService service, IValidator<CategoriaCreateDto> validatorClienteCreate)
     {
         _service = service;
         _validatorCategoriaCreate = validatorClienteCreate;
@@ -22,7 +22,7 @@ public class CategoriaController : ControllerBase
 
 
     [HttpPost]
-    public async Task<IActionResult> SetCadastrarAsync(CategoriaCreateDTO dados)
+    public async Task<IActionResult> SetCadastrarAsync(CategoriaCreateDto dados)
     {
         var validation = await _validatorCategoriaCreate.ValidateAsync(dados);
 

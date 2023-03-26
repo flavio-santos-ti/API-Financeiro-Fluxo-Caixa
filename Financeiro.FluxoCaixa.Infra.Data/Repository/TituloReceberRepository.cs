@@ -1,6 +1,6 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +19,7 @@ public class TituloReceberRepository : BaseRepository, ITituloReceberRepository
     {
     }
 
-    public async Task<ResultCreateDTO> SetReceberAsync(DbContext ctx, TituloReceber dados)
+    public async Task<ResultCreateDto> SetReceberAsync(DbContext ctx, TituloReceber dados)
     {
         var context = (DatabaseContext)ctx;
 
@@ -37,7 +37,7 @@ public class TituloReceberRepository : BaseRepository, ITituloReceberRepository
         }
     }
 
-    public async Task<IEnumerable<TituloReceberDTO>> GetListarAsync()
+    public async Task<IEnumerable<TituloReceberDto>> GetListarAsync()
     {
         const string sqlQuery = @"
         SELECT
@@ -54,7 +54,7 @@ public class TituloReceberRepository : BaseRepository, ITituloReceberRepository
           INNER JOIN pessoa p ON (p.id = c.pessoa_id)
         ";
 
-        return await base.ListarAsync<TituloReceberDTO>(sqlQuery);
+        return await base.ListarAsync<TituloReceberDto>(sqlQuery);
     }
 
 }

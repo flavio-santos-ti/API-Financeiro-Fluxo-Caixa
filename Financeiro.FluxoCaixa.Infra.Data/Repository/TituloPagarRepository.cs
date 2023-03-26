@@ -1,6 +1,6 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +19,7 @@ public class TituloPagarRepository : BaseRepository, ITituloPagarRepository
     {
     }
 
-    public async Task<ResultCreateDTO> SetPagarAsync(DbContext ctx, TituloPagar dados)
+    public async Task<ResultCreateDto> SetPagarAsync(DbContext ctx, TituloPagar dados)
     {
         var context = (DatabaseContext)ctx;
 
@@ -37,7 +37,7 @@ public class TituloPagarRepository : BaseRepository, ITituloPagarRepository
         }
     }
 
-    public async Task<IEnumerable<TituloPagarDTO>> GetListarAsync()
+    public async Task<IEnumerable<TituloPagarDto>> GetListarAsync()
     {
         const string sqlQuery = @"
         SELECT
@@ -54,7 +54,7 @@ public class TituloPagarRepository : BaseRepository, ITituloPagarRepository
           INNER JOIN pessoa p ON (p.id = f.pessoa_id)
         ";
 
-        return await base.ListarAsync<TituloPagarDTO>(sqlQuery);
+        return await base.ListarAsync<TituloPagarDto>(sqlQuery);
     }
 
    

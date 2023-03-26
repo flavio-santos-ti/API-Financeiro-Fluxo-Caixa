@@ -1,4 +1,4 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Extrato;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +17,7 @@ public class ExtratoController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> GetListarAsync(ExtratoFiltroDTO filtro)
+    public async Task<IActionResult> GetListarAsync(ExtratoFiltroDto filtro)
     {
         try
         {
@@ -31,7 +31,7 @@ public class ExtratoController : ControllerBase
     }
 
     [HttpPost("Saldo")]
-    public async Task<IActionResult> GetSomarAsync(ExtratoFiltroDTO filtro)
+    public async Task<IActionResult> GetSomarAsync(ExtratoFiltroDto filtro)
     {
         try
         {

@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO;
-using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos;
+using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
@@ -13,15 +13,15 @@ namespace Financeiro.FluxoCaixa.Controllers.V1;
 public class ClienteController : ControllerBase
 {
     private readonly IClienteService _service;
-    private readonly IValidator<ClienteCreateDTO> _validatorClienteCreate;
-    public ClienteController(IClienteService clienteService, IValidator<ClienteCreateDTO> validatorClienteCreate)
+    private readonly IValidator<ClienteCreateDto> _validatorClienteCreate;
+    public ClienteController(IClienteService clienteService, IValidator<ClienteCreateDto> validatorClienteCreate)
     {
         _service = clienteService;
         _validatorClienteCreate = validatorClienteCreate;
     }
 
     [HttpPost]
-    public async Task<IActionResult> SetCadastrarAsync(ClienteCreateDTO dados)
+    public async Task<IActionResult> SetCadastrarAsync(ClienteCreateDto dados)
     {
         var validation = await _validatorClienteCreate.ValidateAsync(dados);
 

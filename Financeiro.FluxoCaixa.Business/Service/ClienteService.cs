@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.Pessoa;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.Pessoa;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
@@ -40,13 +40,13 @@ public class ClienteService : BaseService, IClienteService
         return await _clienteRepository.GetNoTrackingAsync(ctx, idCliente);
     }
 
-    public async Task<ResultCreateDTO> SetCadastrarAsync(ClienteCreateDTO dados)
+    public async Task<ResultCreateDto> SetCadastrarAsync(ClienteCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
             using (IDbContextTransaction transaction = await context.Database.BeginTransactionAsync())
             {
-                var pessoaCreate = _mapper.Map<PessoaCreateDTO>(dados);
+                var pessoaCreate = _mapper.Map<PessoaCreateDto>(dados);
 
                 var pessoa = await _pessoaService.SetIncluirAsync(context, pessoaCreate);
 
@@ -81,12 +81,12 @@ public class ClienteService : BaseService, IClienteService
         }
     }
 
-    public async Task<IEnumerable<ClienteDTO>> GetListarAsync()
+    public async Task<IEnumerable<ClienteDto>> GetListarAsync()
     {
         return await _clienteRepository.GetListarAsync();
     }
 
-    public  async Task<ResultCreateDTO> ParseAsync(DbContext ctx, long id)
+    public  async Task<ResultCreateDto> ParseAsync(DbContext ctx, long id)
     {
         var context = (DatabaseContext)ctx;
 

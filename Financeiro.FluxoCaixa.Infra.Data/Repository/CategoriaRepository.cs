@@ -1,6 +1,6 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Categoria;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +42,7 @@ public class CategoriaRepository : BaseRepository, ICategoriaRepository
         return categoria;
     }
 
-    public async Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, Categoria dados)
+    public async Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, Categoria dados)
     {
         try
         {
@@ -58,7 +58,7 @@ public class CategoriaRepository : BaseRepository, ICategoriaRepository
         }
     }
 
-    public async Task<ResultDeleteDTO> SetExcluirAsync(DbContext ctx, int id)
+    public async Task<ResultDeleteDto> SetExcluirAsync(DbContext ctx, int id)
     {
         try
         {

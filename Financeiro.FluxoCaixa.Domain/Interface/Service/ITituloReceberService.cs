@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace Financeiro.FluxoCaixa.Domain.Interface.Service;
 
 public interface ITituloReceberService
 {
-    Task<ResultCreateDTO> SetReceberAsync(TituloReceberCreateDTO dados);
-    Task<IEnumerable<TituloReceberDTO>> GetListarAsync();
+    Task<ResultCreateDto> SetReceberAsync(TituloReceberCreateDto dados);
+    Task<IEnumerable<TituloReceberDto>> GetListarAsync();
 }

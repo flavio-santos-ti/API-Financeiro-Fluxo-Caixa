@@ -1,19 +1,13 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Categoria;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financeiro.FluxoCaixa.Domain.Interface.Service;
 
 public interface ICategoriaService
 {
-    Task<ResultCreateDTO> SetCadastrarAsync(CategoriaCreateDTO dados);
-    Task<ResultDeleteDTO> SetRemoverAsync(int id);
-    Task<IEnumerable<CategoriaDTO>> GetListarAsync();
-    Task<ResultCreateDTO> ParseAsync(DbContext ctx, int id);
+    Task<ResultCreateDto> SetCadastrarAsync(CategoriaCreateDto dados);
+    Task<ResultDeleteDto> SetRemoverAsync(int id);
+    Task<IEnumerable<CategoriaDto>> GetListarAsync();
+    Task<ResultCreateDto> ParseAsync(DbContext ctx, int id);
 }

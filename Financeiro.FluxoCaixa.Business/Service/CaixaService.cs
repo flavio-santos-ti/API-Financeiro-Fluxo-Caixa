@@ -1,19 +1,13 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Caixa;
-using Financeiro.FluxoCaixa.Domain.DTO.Extrato;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloPagar;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Caixa;
+using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financeiro.FluxoCaixa.Business.Service;
 
@@ -44,7 +38,7 @@ public class CaixaService : BaseService, ICaixaService
         return (saldoFinalExistente != null);
     }
 
-    public async Task<ResultCreateDTO> SetAbrirAsync(CaixaCreateDTO dados)
+    public async Task<ResultCreateDto> SetAbrirAsync(CaixaCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
@@ -71,7 +65,7 @@ public class CaixaService : BaseService, ICaixaService
 
                 if (valor >= 0)
                 {
-                    ExtratoCreateDTO extratoCaixaInicial = new();
+                    ExtratoCreateDto extratoCaixaInicial = new();
                     extratoCaixaInicial.Descricao = "Saldo Anterior";
                     extratoCaixaInicial.Valor = valor;
                     extratoCaixaInicial.DataExtrato = dados.Data;
@@ -106,7 +100,7 @@ public class CaixaService : BaseService, ICaixaService
                 } 
                 else
                 {
-                    TituloPagarCreateDTO caixaInicial = new();
+                    TituloPagarCreateDto caixaInicial = new();
                     caixaInicial.Descricao = "Saldo Inicial";
                     caixaInicial.ValorReal = valor;
                     caixaInicial.DataReal = dados.Data;
@@ -145,7 +139,7 @@ public class CaixaService : BaseService, ICaixaService
 
     }
 
-    public async Task<ResultCreateDTO> SetFecharAsync(CaixaCreateDTO dados)
+    public async Task<ResultCreateDto> SetFecharAsync(CaixaCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
@@ -167,7 +161,7 @@ public class CaixaService : BaseService, ICaixaService
 
                 if (saldoAnterior >= 0)
                 {
-                    ExtratoCreateDTO extratoSaldoDia = new();
+                    ExtratoCreateDto extratoSaldoDia = new();
                     extratoSaldoDia.Descricao = "Saldo do Dia";
                     extratoSaldoDia.Valor = saldoAnterior;
                     extratoSaldoDia.DataExtrato = dados.Data;
@@ -203,7 +197,7 @@ public class CaixaService : BaseService, ICaixaService
                 }
                 else
                 {
-                    ExtratoCreateDTO extratoSaldoDia = new();
+                    ExtratoCreateDto extratoSaldoDia = new();
                     extratoSaldoDia.Descricao = "Saldo do Dia";
                     extratoSaldoDia.Valor = saldoAnterior;
                     extratoSaldoDia.DataExtrato = dados.Data;
@@ -242,7 +236,7 @@ public class CaixaService : BaseService, ICaixaService
 
     }
 
-    public async Task<ResultCreateDTO> ParseLancamentoAsync(DbContext ctx, DateTime data)
+    public async Task<ResultCreateDto> ParseLancamentoAsync(DbContext ctx, DateTime data)
     {
         var context = (DatabaseContext)ctx;
         
@@ -262,7 +256,7 @@ public class CaixaService : BaseService, ICaixaService
         return base.ResultCreate((invalidMessage == string.Empty), invalidMessage, 0);
     }
 
-    public async Task<ResultCreateDTO> ParseAberturaAsync(DbContext ctx, DateTime data)
+    public async Task<ResultCreateDto> ParseAberturaAsync(DbContext ctx, DateTime data)
     {
         var context = (DatabaseContext)ctx;
 
@@ -283,7 +277,7 @@ public class CaixaService : BaseService, ICaixaService
     }
 
 
-    public async Task<CaixaDTO> GetSituacaoAsync()
+    public async Task<CaixaDto> GetSituacaoAsync()
     {
         var saldoDiario = await _saldoDiarioService.GetSituacaoAsync();
 
@@ -302,7 +296,7 @@ public class CaixaService : BaseService, ICaixaService
         }
         else situacao = "Sem movimento";
             
-        CaixaDTO caixa = new();
+        CaixaDto caixa = new();
         caixa.Situacao = situacao;
 
         if (caixa.Situacao != "Sem movimento")

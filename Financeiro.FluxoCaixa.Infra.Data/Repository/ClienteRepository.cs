@@ -1,15 +1,11 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Financeiro.FluxoCaixa.Infra.Data.Repository;
 
@@ -19,7 +15,7 @@ public class ClienteRepository : BaseRepository, IClienteRepository
     {
     }
 
-    public async Task<ResultCreateDTO> SetIncluirAsync(DbContext ctx, long idPessoa)
+    public async Task<ResultCreateDto> SetIncluirAsync(DbContext ctx, long idPessoa)
     {
         var context = (DatabaseContext)ctx;
 
@@ -60,7 +56,7 @@ public class ClienteRepository : BaseRepository, IClienteRepository
         return cliente;
     }
 
-    public async Task<IEnumerable<ClienteDTO>> GetListarAsync()
+    public async Task<IEnumerable<ClienteDto>> GetListarAsync()
     {
         const string sqlQuery = @"
         SELECT
@@ -74,7 +70,7 @@ public class ClienteRepository : BaseRepository, IClienteRepository
         "
         ;
 
-        return await base.ListarAsync<ClienteDTO>(sqlQuery);
+        return await base.ListarAsync<ClienteDto>(sqlQuery);
     }
 
 

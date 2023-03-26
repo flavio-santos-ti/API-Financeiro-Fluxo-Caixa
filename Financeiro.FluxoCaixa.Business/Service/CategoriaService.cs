@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Financeiro.FluxoCaixa.Domain.DTO.Categoria;
-using Financeiro.FluxoCaixa.Domain.DTO.Cliente;
-using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.Entity;
+using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
+using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Financeiro.FluxoCaixa.Domain.Interface.Repository;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
@@ -29,7 +29,7 @@ public class CategoriaService : BaseService, ICategoriaService
         _categoriaRepository = categoriaRepository;
     }
 
-    public async Task<ResultCreateDTO> SetCadastrarAsync(CategoriaCreateDTO dados)
+    public async Task<ResultCreateDto> SetCadastrarAsync(CategoriaCreateDto dados)
     {
         using (var context = new DatabaseContext(_configuration))
         {
@@ -54,7 +54,7 @@ public class CategoriaService : BaseService, ICategoriaService
         }
     }
 
-    public async Task<ResultDeleteDTO> SetRemoverAsync(int id)
+    public async Task<ResultDeleteDto> SetRemoverAsync(int id)
     {
         using (var context = new DatabaseContext(_configuration))
         {
@@ -62,7 +62,7 @@ public class CategoriaService : BaseService, ICategoriaService
 
             if (categoria == null)
             {
-                return base.ResultDelete(false, "Categoria não localizada!", categoria.Id);
+                return base.ResultDelete(false, "Categoria não localizada!", 1);
             }
 
             return await _categoriaRepository.SetExcluirAsync(context, id);
@@ -70,13 +70,13 @@ public class CategoriaService : BaseService, ICategoriaService
 
     }
 
-    public async Task<IEnumerable<CategoriaDTO>> GetListarAsync()
+    public async Task<IEnumerable<CategoriaDto>> GetListarAsync()
     {
         using (var context = new DatabaseContext(_configuration))
         {
             var categorias = await _categoriaRepository.GetListarAsync(context);
 
-            return _mapper.Map<IEnumerable<CategoriaDTO>>(categorias);
+            return _mapper.Map<IEnumerable<CategoriaDto>>(categorias);
 
         }
     }
@@ -88,7 +88,7 @@ public class CategoriaService : BaseService, ICategoriaService
         return await _categoriaRepository.GetNoTrackingAsync(context, idCategoria);
     }
 
-    public async Task<ResultCreateDTO> ParseAsync(DbContext ctx, int id)
+    public async Task<ResultCreateDto> ParseAsync(DbContext ctx, int id)
     {
         var context = (DatabaseContext)ctx;
 

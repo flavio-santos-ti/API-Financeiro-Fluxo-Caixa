@@ -1,5 +1,5 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Categoria;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ public class CategoriaProfile : AutoMapper.Profile
 {
     public CategoriaProfile()
     {
-        CreateMap<Categoria, CategoriaCreateDTO>().ReverseMap();
-        CreateMap<Categoria, CategoriaDTO>().ReverseMap();
+        CreateMap<Categoria, CategoriaCreateDto>().ReverseMap();
+        CreateMap<Categoria, CategoriaDto>().ReverseMap();
     }
 }

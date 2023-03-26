@@ -1,18 +1,13 @@
-﻿using Financeiro.FluxoCaixa.Domain.DTO.Result;
-using Financeiro.FluxoCaixa.Domain.DTO.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Entity;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
+using Financeiro.FluxoCaixa.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financeiro.FluxoCaixa.Domain.Interface.Repository
 {
     public interface ITituloReceberRepository
     {
-        Task<ResultCreateDTO> SetReceberAsync(DbContext ctx, TituloReceber dados);
-        Task<IEnumerable<TituloReceberDTO>> GetListarAsync();
+        Task<ResultCreateDto> SetReceberAsync(DbContext ctx, TituloReceber dados);
+        Task<IEnumerable<TituloReceberDto>> GetListarAsync();
     }
 }
