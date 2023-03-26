@@ -3,11 +3,6 @@ using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
 using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financeiro.FluxoCaixa.Domain.Interface.Service;
 

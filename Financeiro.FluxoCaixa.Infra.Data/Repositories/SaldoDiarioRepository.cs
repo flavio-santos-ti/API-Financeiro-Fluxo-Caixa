@@ -1,18 +1,12 @@
-﻿using Financeiro.FluxoCaixa.Domain.Dtos.Extrato;
-using Financeiro.FluxoCaixa.Domain.Dtos.Result;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Financeiro.FluxoCaixa.Domain.Dtos.SaldoDiario;
 using Financeiro.FluxoCaixa.Domain.Entities;
-using Financeiro.FluxoCaixa.Domain.Interface.Repository;
+using Financeiro.FluxoCaixa.Domain.Interface.Repositories;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Repository;
+namespace Financeiro.FluxoCaixa.Infra.Data.Repositories;
 
 public class SaldoDiarioRepository : BaseRepository, ISaldoDiarioRepository
 {

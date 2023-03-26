@@ -2,7 +2,6 @@
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace Financeiro.FluxoCaixa.Controllers.V1;
 

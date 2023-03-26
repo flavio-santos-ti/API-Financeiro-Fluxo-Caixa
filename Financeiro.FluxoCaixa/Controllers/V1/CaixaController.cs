@@ -1,5 +1,4 @@
 ﻿using Financeiro.FluxoCaixa.Domain.Dtos.Caixa;
-using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Microsoft.AspNetCore.Mvc;
 

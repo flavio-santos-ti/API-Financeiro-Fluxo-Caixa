@@ -3,7 +3,7 @@ using Financeiro.FluxoCaixa.Domain.Dtos.SaldoDiario;
 using Financeiro.FluxoCaixa.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Financeiro.FluxoCaixa.Domain.Interface.Repository;
+namespace Financeiro.FluxoCaixa.Domain.Interface.Repositories;
 
 public interface ISaldoDiarioRepository
 {

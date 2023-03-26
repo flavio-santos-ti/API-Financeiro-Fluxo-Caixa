@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Repository;
+namespace Financeiro.FluxoCaixa.Infra.Data.Repositories;
 
 public class BaseRepository
 {

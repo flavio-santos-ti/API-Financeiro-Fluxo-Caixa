@@ -1,5 +1,4 @@
-﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
-using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;

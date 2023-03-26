@@ -3,20 +3,12 @@ using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Dtos.Pessoa;
 using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Financeiro.FluxoCaixa.Domain.Entities;
-using Financeiro.FluxoCaixa.Domain.Interface.Repository;
+using Financeiro.FluxoCaixa.Domain.Interface.Repositories;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financeiro.FluxoCaixa.Business.Service;
 

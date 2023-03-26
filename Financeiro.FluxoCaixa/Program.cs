@@ -3,17 +3,14 @@ using Financeiro.FluxoCaixa.Domain.Dtos.Categoria;
 using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Dtos.TituloPagar;
 using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
-using Financeiro.FluxoCaixa.Domain.Interface.Repository;
+using Financeiro.FluxoCaixa.Domain.Interface.Repositories;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
-using Financeiro.FluxoCaixa.Infra.Data.Repository;
+using Financeiro.FluxoCaixa.Infra.Data.Repositories;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel.DataAnnotations;
 
 var builder = WebApplication.CreateBuilder(args);
 

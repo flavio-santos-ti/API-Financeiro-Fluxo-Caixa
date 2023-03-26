@@ -1,9 +1,7 @@
-﻿using Financeiro.FluxoCaixa.Domain.Dtos;
-using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
+﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 
 namespace Financeiro.FluxoCaixa.Controllers.V1;
 

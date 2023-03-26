@@ -2,7 +2,7 @@
 using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Financeiro.FluxoCaixa.Domain.Dtos.TituloReceber;
 using Financeiro.FluxoCaixa.Domain.Entities;
-using Financeiro.FluxoCaixa.Domain.Interface.Repository;
+using Financeiro.FluxoCaixa.Domain.Interface.Repositories;
 using Financeiro.FluxoCaixa.Domain.Interface.Service;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;

@@ -1,13 +1,13 @@
 ﻿using Financeiro.FluxoCaixa.Domain.Dtos.Cliente;
 using Financeiro.FluxoCaixa.Domain.Dtos.Result;
 using Financeiro.FluxoCaixa.Domain.Entities;
-using Financeiro.FluxoCaixa.Domain.Interface.Repository;
+using Financeiro.FluxoCaixa.Domain.Interface.Repositories;
 using Financeiro.FluxoCaixa.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 
-namespace Financeiro.FluxoCaixa.Infra.Data.Repository;
+namespace Financeiro.FluxoCaixa.Infra.Data.Repositories;
 
 public class ClienteRepository : BaseRepository, IClienteRepository
 {
